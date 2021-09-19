@@ -2,9 +2,7 @@ import 'package:calculadora/bloc/calculator_bloc/calculator_bloc.dart';
 import 'package:calculadora/widgets/results.dart';
 import 'package:flutter/material.dart';
 import 'package:calculadora/widgets/calc_button.dart';
-import 'package:calculadora/widgets/line_separator.dart';
-import 'package:calculadora/widgets/main_result.dart';
-import 'package:calculadora/widgets/sub_result.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
@@ -44,12 +42,12 @@ class CalculatorScreen extends StatelessWidget {
                   CalculatorButton( 
                     text: 'del',
                     bgColor: Color(0xffA5A5A5 ),
-                    onPressed: () => print('del'),
+                    onPressed: () => calculatorBloc.add(DeleteLastEntry()),
                   ),
                   CalculatorButton( 
                     text: '/',
                     bgColor: Color(0xffF0A23B ),
-                    onPressed: () => print('/'),
+                    onPressed: () => calculatorBloc.add(OperationEntry('/')),
                   ),
                 ],
               ),
@@ -72,7 +70,7 @@ class CalculatorScreen extends StatelessWidget {
                   CalculatorButton( 
                     text: 'X',
                     bgColor: Color(0xffF0A23B ),
-                    onPressed: () => print('X'),
+                    onPressed: () => calculatorBloc.add(OperationEntry('X')),
                   ),
                 ],
               ),
@@ -95,7 +93,7 @@ class CalculatorScreen extends StatelessWidget {
                   CalculatorButton( 
                     text: '-',
                     bgColor: Color(0xffF0A23B ),
-                    onPressed: () => print('-'),
+                    onPressed: () => calculatorBloc.add(OperationEntry('-')),
                   ),
                 ],
               ),
@@ -118,7 +116,7 @@ class CalculatorScreen extends StatelessWidget {
                   CalculatorButton(
                     text: '+',  
                     bgColor: Color(0xffF0A23B ),
-                    onPressed: () => print('+'),
+                    onPressed: () => calculatorBloc.add(OperationEntry('+')),
                   ),
                 ],
               ),
@@ -138,7 +136,7 @@ class CalculatorScreen extends StatelessWidget {
                   CalculatorButton( 
                     text: '=',
                     bgColor: Color(0xffF0A23B ),
-                    onPressed: () => print('='),
+                    onPressed: () => calculatorBloc.add(CalculateResult()),
                   ),
                 ],
               ),
